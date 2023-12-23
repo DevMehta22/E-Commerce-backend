@@ -8,7 +8,7 @@ const itemSchema = new mongoose.Schema({
         type: String,
         default:""
         },
-    imagelUrl:{
+    imageUrl:{
         type:String,
         required: true
     },

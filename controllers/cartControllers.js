@@ -24,12 +24,13 @@ const add_cartItems = async(req,res)=>{
     try {
         let cart = await cartSchema.findOne({userId});
         let item = await itemSchema.findOne({_id:productId});
+        console.log(item)
          if(!item){
             return res.status(404).send("Product Not Found!");
          }
          const price = item.price;
-         const name = item.name;
-         const imageUrl = item.imagelUrl;
+         const name = item.title;
+         const imageUrl = item.imageUrl;
          if (cart) {
             let existItemIndex = cart.items.findIndex((val)=> val.productId==productId);
             if(existItemIndex!=-1){
@@ -61,18 +62,20 @@ const add_cartItems = async(req,res)=>{
 }
 
 const delete_cartItems = async(req,res)=>{
-    const userId = req.params.id;
-    const productId = req.params.productId;
+    const userId = req.params.userId;
+    const productId = req.params.itemId;
+    // console.log(userId,'\n',productId);
     try {
         let cart  = await cartSchema.findOne({userId});
+        // console.log("cart:",cart);
         let existItemIndex = cart.items.findIndex((val)=> val.productId==productId);
             if(existItemIndex!=-1){
                 cart.bill-=cart.items[existItemIndex].quantity*cart.items[existItemIndex].price;
                 cart.items.splice(existItemIndex,1);
             }
-            await cart.save().then(cart=>{
+            await cart.save()
                 return res.status(201).send(cart);
-            })
+           
 
     }catch(err){
         console.log(err);

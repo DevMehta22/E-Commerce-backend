@@ -32,6 +32,8 @@ const login = async(req,res)=>{
                 });
             }
         )
+    }else{
+        return res.status(400).send({msg:"User does not exist!"})
     }
 }catch(err){
     console.log(err);
@@ -65,7 +67,10 @@ const signup = async(req,res)=>{
                             if(err)throw err;
                             res.json({
                                 token,
-                                user: data
+                                user:{
+                                    name:data.name,
+                                    email:data.email
+                                }
                             })
                         }
                     )
@@ -75,7 +80,7 @@ const signup = async(req,res)=>{
 }
 
 const get_user = (req,res)=>{
-    UserActivation.findById(req.user.id)
+    userSchema.findById(req.user.id)
     .select('-password')
     .then(user=>res.json(user));
 }
