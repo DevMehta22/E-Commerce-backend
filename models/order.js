@@ -21,7 +21,9 @@ const orderSchema = new mongoose.Schema({
         },
         price:{
             type:Number,
-            required:true
+            required:true,
+            min:[0,'Price cannot be Negative']
+
         },
         imageUrl:{
             type: String
@@ -29,11 +31,12 @@ const orderSchema = new mongoose.Schema({
     }],
     bill:{
         type:Number,
-        required:true
+        required:true,
+        min:[0,'Bill cannot be Negative']
     },
     date:{
         type:Date,
-        default: Date.now()
+        default: Date.now
     }
 });
 

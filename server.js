@@ -6,8 +6,13 @@ const authRoutes = require('./routes/authRoutes');
 const itemRoutes = require('./routes/itemRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const helmet = require('helmet');
+const morgan = require('morgan');
 
 app.use(express.json())
+app.use(helmet())
+app.use(morgan('dev'))
+
 app.use('/e-commerce/auth',authRoutes);
 app.use('/e-commerce/product',itemRoutes);
 app.use('/e-commerce/cartproduct',cartRoutes);
