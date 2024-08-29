@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mongodb:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+     - "27017:27017"
+
+  backend:
+    container_name: E-commerce
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+     - "8000:8000"
+    volumes:
+      - ./:/app
+      - logs:/app/logs
+      - /app/node_modules
+    depends_on:
+     - mongodb
+    
+      
+volumes:
+  logs:
+
+
+
