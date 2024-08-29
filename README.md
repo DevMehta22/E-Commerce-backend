@@ -6,13 +6,7 @@
 git clone https://github.com/DevMehta22/E-Commerce-backend.git
 ```
 
-<p>2. Install packages</p>
-
-```
-npm i node_modules dotenv
-```
-
-<p>3. Set-up .env file</p>
+<p>2. Set-up .env.sample file</p>
 
 ```
 MONGO_URI="your mongodb link"
@@ -26,8 +20,12 @@ PORT ="port"
 SECRET_KEY = "your secret key"
 ```
 
-<p>6. Start the server</p>
+```
+STRIPEAPIKEY = "your stripe api"
+```
+
+<p>3. Run docker compose file</p>
 
 ```
-npm run dev
+docker-compose up --build
 ```
