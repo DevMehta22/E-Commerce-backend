@@ -7,7 +7,7 @@ services:
      - "27017:27017"
 
   backend:
-    container_name: E-commerce
+    container_name: e-commerce
     build:
       context: ./
       dockerfile: Dockerfile

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+data:
+  MONGO_URI: J21vbmdvZGIrc3J2Oi8vbWVodGFkZXY5MjpkZXYxMjNAY2x1c3RlcjAuazd0eWRzMC5tb25nb2RiLm5ldC9zc2lwP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eSc=
+  PORT: ODAwMA==
