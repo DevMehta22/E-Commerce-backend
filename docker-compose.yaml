@@ -11,6 +11,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    image: devmehta22/e-commerce-backend
     ports:
      - "8000:8000"
     volumes:

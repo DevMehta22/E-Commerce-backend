@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: e-commerce
-        image: e-commerce-backend-backend:latest 
+        image: devmehta22/e-commerce-backend:latest 
         ports:
         - containerPort: 8000
         env:
@@ -40,6 +40,8 @@ spec:
             secretKeyRef:
               name: ecommerce-secrets
               key: StripeAPIKey
+      imagePullSecrets:
+      - name: my-dockerhub-secret 
 
 ---
 
